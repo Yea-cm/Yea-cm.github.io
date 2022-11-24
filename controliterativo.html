@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Control Iterativo</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/feather/feather.css">
+  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/logo.png" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Busqueda nueva.." aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notificaciones</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="ti-info-alt mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Error de la aplicación</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    En este momento
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="ti-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Ajustes</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Mensaje privado
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="ti-user mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Registro de nuevo usuario</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    hace 2 días
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="images/faces/moto.jpg" alt="profile"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Ajustes
+              </a>
+              <a class="dropdown-item" href="index.html">
+                <i class="ti-power-off text-primary"></i>
+                ¡Bye, nos vemos luego!
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-settings d-none d-lg-flex">
+            <a class="nav-link" href="#">
+              <i class="icon-ellipsis"></i>
+            </a>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">PIELES DE LA BARRA LATERAL</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Ligero</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Oscuro</div>
+          <p class="settings-heading mt-2">PIELES DE CABECERA</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">LISTA DE QUEHACERES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Agregar tarea">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Agregar</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Reunión de revisión del equipo en 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepárate para la presentación
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolver todos los tickets de baja prioridad que vencen hoy
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Programar reunión para la próxima semana
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Revision del proyecto
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 font-weight-light mb-0">Eventos</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary mr-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creando una página de componentes construye un js</p>
+              <p class="text-gray mb-0">El número total de sesiones</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary mr-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Encuentro con Alisa</p>
+              <p class="text-gray mb-0 ">llamar a sarah graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Amigos</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">Ver todo</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="images/faces/pony.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Pony Salvaje</p>
+                  <p>Siempre ala orden</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/darianis.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Darianis</p>
+                  </div>
+                  <p>Gracias</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/gus.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Gustavo</p>
+                  <p>Buenisimo jsjsjjsjs</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/luisa.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>Luisa</p>
+                  <p>Jijijij</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/moto.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Moto</p>
+                  <p>Ok</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face-mi.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Instructor Eliseo Vega Alian</p>
+                  <p>Estoy en sala de instructores</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Portafolio 💎</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Pseudocodigo</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="secueniales.html">Secuenciales</a></li>
+                <li class="nav-item"> <a class="nav-link" href="condicionales.html">Condicionales</a></li>
+                <li class="nav-item"> <a class="nav-link" href="controliterativo.html">Control iterativo</a></li>
+                <li class="nav-item"> <a class="nav-link" href="funciones.html">Funciones</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">HTML 5</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="HTML5.html">Html5</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="icon-bar-graph menu-icon"></i>
+              <span class="menu-title">CSS 3</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="css3.html">CSS 3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <i class="icon-grid-2 menu-icon"></i>
+              <span class="menu-title">Javascript 6</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="js.html">Javascript </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="icon-contract menu-icon"></i>
+              <span class="menu-title">Python</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="python.html">Python</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Páginas de usuario</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Acceso</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Registro </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+              <i class="icon-ban menu-icon"></i>
+              <span class="menu-title">Páginas de error</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="error">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/documentation/documentation.html">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">Documentación</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <div class="">
+                    <h3>Primeros Pinitos <i class="fa-solid fa-seedling"></i>
+                    </h3>
+                    <hr class="">
+                    <h4 class="card-title" style="font-size:2rem;">Estructuras:<span> Control Iterativo</span></h4>
+                    <h4 class="font-weight-normal mb-4">Para la realización de los siguientes ejercicios se utilizó la herramienta:<a href="https://addons.opera.com/es/wallpapers/details/pewdiepie-animated-wallpaper/"> Pseint (compilador)</a></h4>
+                  </div>
+                  <!--Primera fila-->
+                  <div class="row">
+                    <!-- Primer boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2">
+                      <div class="dropdown m-11">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          1.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Sumar dos números</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Segundo boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2">
+                      <div class="dropdown m-10">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          2.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">El número cuadrado</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Tercer boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          3.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">El promedio de 3 notas</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Cuarto boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          4.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Algoritmo que pregunte al usuario: nombre y luego lo salude.</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Quinto boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Ejercicio # 5
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Algoritmo que calcule: área de un rectángulo.</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div> 
+                    
+                    
+                  </div>
+                  <!--Segunda fila-->
+                  <div class="row">
+                    <!-- Primer boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2">
+                      <div class="dropdown m-10">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          6.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Perímetro de un rectángulo</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Segundo boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2">
+                      <div class="dropdown m-10">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          7.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Convertir dólares a pesos colombianos.</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Tercer boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          8.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Calculadora</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Cuarto boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          9 Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Área de un círculo</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Quinto boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Ejercicio#10
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header col-xs-12 col-sm-3 col-md-2  col-lg-12">En una institución educativa le pagan a sus profesores pagos legales vigentes<br> y les hacen un descuento del 5% sobre su salario por concepto de ahorro programado. <br>Calcule el monto del descuento y calcule el monto total de vengado por el profesor <br>(El total que le llegue luego del descuento)
+                          </h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div> 
+                    
+                    
+                  </div>
+                  <!--Tercera fila-->
+                  <div class="row">
+                    <!-- Primer boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-2 mr-2 col-md-2 mr-2 col-lg-2">
+                      <div class="dropdown m-10">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          11.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Ingresar un número el usuario <br> 
+                            a) Calcule el doble de un número y muestre en pantalla
+                          <br>
+                            b) Calcule el triple </h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Segundo boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2">
+                      <div class="dropdown m-10">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        12.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Ingresar un valor en grados Fahrenheit convierta a grados Celsius. <br>Recordar que la fórmula para la conversión es:  C = (F-32)*5/9</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Tercer boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        13.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Usuario ingrese por pantalla una cantidad de minutos y muestre a cuantas horas corresponde.</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Cuarto boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        14.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Diseñe un algoritmo para una tienda que ofrece un descuento del 15% <br> sobre el total de la compra y un cliente desea saber cuanto deberá pagar finalmente por su compra</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Quinto boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        15.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Diseñe un algoritmos que al ingresar un número entero. <br> Calcule su raíz cuadrada y Calcule su raíz cúbica.</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div> 
+                    
+                    
+                  <!--Primera fila-->
+                  </div>
+                  <!--Cuarta fila-->
+                  <div class="row">
+                    <!-- Primer boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2">
+                      <div class="dropdown m-10">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          16.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Ingresar el valor de un préstamo bancario.<br>
+                            a). Calcule cuánto pagará anualmente , si el banco le cobra una tasa del 27% anual<br>
+                            b). Calcule cuanto pagara mensual</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Segundo boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2">
+                      <div class="dropdown m-10">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          17.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Diseñe un algoritmos que al ingresar el nombre del empleado, la cantidad horas trabajadas y el valor de la hora.<br>
+                            a). Muestre el nombre de empleado y Calcular el salario de un trabajador</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Tercer boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          18.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header"> Diseñe un algoritmo que permita ingresar el nombre, la edad y peso de una persona.<br> Posteriormente imprimirla de forma concatenada.</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Cuarto boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          19.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Ingresar el nombre, el peso y la estatura de una persona. <br>Calcule el índice de masa corporal y posteriormente imprimirla de forma concatenada.<br>
+                            IMC = Peso (Kg) / (Estatura * Estatura )(Mt).
+                            Ejemplo: Una persona pesa 64 Kg y mide 1.5 metros: 64 / (1.5 x 1.5) = 28.44Kg/Mt^2.</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Quinto boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          20.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Diseñe un algoritmo que al ingresar el precio del ( Mt)<br> y la cantidad de tela (Mt)  Determinar el monto a pagar por un corte de tela.</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div> 
+                    
+                    
+                  </div>
+
+                  <!--Quinta fila-->
+                  <div class="row">
+                    <!-- Primer boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2">
+                      <div class="dropdown m-10">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          21.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Diseñe un algoritmo que al ingresar los catetos de un triángulo rectángulo(Cateto opuesto y Cateto Adyacente ),<br> calcular su hipotenusa
+                            c = (a^2 + b^2)^(1/2)</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Segundo boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2">
+                      <div class="dropdown m-10">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          22.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Ingresar sueldo base y número de hijos del empleado.<br>
+                            a). La empresa le otorga una bonificación del 5% del sueldo base por cada hijo. <br>Calcule la bonificación obtenida.
+                            b). La empresa le descuenta un 4% del sueldo base para S. s. Calcule el descuento por S.s.<br>
+                            c). La empresa le otorga un auxilio de transporte del 10% del sueldo base. Calcule el auxilio de transporte.<br>
+                            d). Calcule el sueldo final devengado.</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Tercer boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          23.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Ingresar la cantidad de metros cuadrados y precio por metro cuadrado = $ 1000,000.<br> 
+                            a). Determine el monto total del terreno, <br>
+                            b). El cliente debe dar una inicial del 30% de valor total del terreno. Calcule el valor de su cuota inicial, <br>
+                            c). El resto(70%) lo paga en 12 cuotas. Calcule el valor del resto pendiente <br>
+                            d). Calcule el valor de la cuota..</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Cuarto boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          24.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Diseñe un algoritmo que Calcule el área y el perímetro de un paralelogramo.<br>
+                          perímetro = 2*(a+b)<br>
+                          área= b*a</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Quinto boton -->
+                    <div class="mr-1 mb-3 col-xs-12 col-sm-3 mr-2 col-md-2 mr-2 col-lg-2 mr-2">
+                      <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          25.Ejercicio
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <h6 class="dropdown-header">Diseñe un algoritmo que Convierta de kilos a libras.<br>Multiplica el número de kilos por 2.2046.</h6>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Archivo (Pseint)</a>
+                        </div>
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <h3 class="card-title" style="font-size:1.5rem;color:#41833B; margin-right: 40px;">Anotaciones </h3>
+                    <p >En el trancurso de los primeros pinitos hicimos escribí mucho, me era interesante lo que aprendía así que quise documentar lo que pude. </span> </p>
+                    <div style="border: solid 1px; border-radius:10px; text-align: center;"><a href="#" download="Cuaderno-notas" class="p-3 text-center">Notas</a></div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" >
+                    <!-- <p class="card-description"></p> -->
+                    <p style="margin: 43px 0 30px 0;">Para la mayoría de los ejericios que se encuentran al inicio tuve que realizar un análisis. 
+                    <div style="border: solid 1px; border-radius:10px; text-align: center;"><a href="#" download="Análisis" class="p-3 text-center">Análisis</a></div>
+                  </div></div>
+                  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/todolist.js"></script>
+  <!-- endinject -->
+  <script src="https://kit.fontawesome.com/22b48adfe3.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

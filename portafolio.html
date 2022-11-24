@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Portafolio del Aprendiz</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/feather/feather.css">
+  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/logo.png" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo.png" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Busqueda nueva.." aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notificaciones</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="ti-info-alt mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Error de la aplicación</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    En este momento
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="ti-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Ajustes</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Mensaje privado
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="ti-user mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Registro de nuevo usuario</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    hace 2 días
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="images/faces/moto.jpg" alt="profile"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Ajustes
+              </a>
+              <a class="dropdown-item" href="index.html">
+                <i class="ti-power-off text-primary"></i>
+                ¡Bye, nos vemos luego!
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-settings d-none d-lg-flex">
+            <a class="nav-link" href="#">
+              <i class="icon-ellipsis"></i>
+            </a>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">PIELES DE LA BARRA LATERAL</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Ligero</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Oscuro</div>
+          <p class="settings-heading mt-2">PIELES DE CABECERA</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">LISTA DE QUEHACERES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Agregar tarea">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Agregar</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Reunión de revisión del equipo en 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepárate para la presentación
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolver todos los tickets de baja prioridad que vencen hoy
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Programar reunión para la próxima semana
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Revision del proyecto
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 font-weight-light mb-0">Eventos</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary mr-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creando una página de componentes construye un js</p>
+              <p class="text-gray mb-0">El número total de sesiones</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary mr-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Encuentro con Alisa</p>
+              <p class="text-gray mb-0 ">llamar a sarah graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Amigos</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">Ver todo</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="images/faces/pony.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Pony Salvaje</p>
+                  <p>Siempre ala orden</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/darianis.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Darianis</p>
+                  </div>
+                  <p>Gracias</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/gus.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Gustavo</p>
+                  <p>Buenisimo jsjsjjsjs</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/luisa.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>Luisa</p>
+                  <p>Jijijij</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/moto.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Moto</p>
+                  <p>Ok</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face-mi.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Instructor Eliseo Vega Alian</p>
+                  <p>Estoy en sala de instructores</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Portafolio 💎</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Pseudocodigo</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="secueniales.html">Secuenciales</a></li>
+                <li class="nav-item"> <a class="nav-link" href="condicionales.html">Condicionales</a></li>
+                <li class="nav-item"> <a class="nav-link" href="controliterativo.html">Control iterativo</a></li>
+                <li class="nav-item"> <a class="nav-link" href="funciones.html">Funciones</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">HTML 5</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="HTML5.html">Html5</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="icon-bar-graph menu-icon"></i>
+              <span class="menu-title">CSS 3</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="css3.html">CSS 3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <i class="icon-grid-2 menu-icon"></i>
+              <span class="menu-title">Javascript 6</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="js.html">Javascript </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="icon-contract menu-icon"></i>
+              <span class="menu-title">Python</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="python.html">Python</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Páginas de usuario</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Acceso</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Registro </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+              <i class="icon-ban menu-icon"></i>
+              <span class="menu-title">Páginas de error</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="error">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/documentation/documentation.html">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">Documentación</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold">¡Holaaa, espero te encuentres super bien!</h3>
+                  <h6 class="font-weight-normal mb-0">Analisis y Desarrollo de Sistemas de Informacion <span class="text-primary">Sena Regional Sucre</span></h6>
+                </div>
+                <div class="col-12 col-xl-4">
+                 <div class="justify-content-end d-flex">
+                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                    <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                     <i class="mdi mdi-calendar"></i> Hoy (10 de enero de 2021)
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
+                      <a class="dropdown-item" href="#">Enero marzo</a>
+                      <a class="dropdown-item" href="#">Marzo - Junio</a>
+                      <a class="dropdown-item" href="#">Junio - ​​Agosto</a>
+                      <a class="dropdown-item" href="#">Agosto - Noviembre</a>
+                    </div>
+                  </div>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card tale-bg">
+                <div class="card-people mt-auto">
+                  <img src="images/dashboard/people.svg" alt="people">
+                  <div class="weather-info">
+                    <div class="d-flex">
+                      <div>
+                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
+                      </div>
+                      <div class="ml-2">
+                        <h4 class="location font-weight-normal">Sincelejo</h4>
+                        <h6 class="font-weight-normal">Colombia</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 grid-margin transparent">
+              <div class="row">
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                  <div class="card card-tale">
+                    <div class="card-body">
+                      <p class="mb-4">Reservas de hoy</p>
+                      <p class="fs-30 mb-2">4006</p>
+                      <p>10.00% (30 días)</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                  <div class="card card-dark-blue">
+                    <div class="card-body">
+                      <p class="mb-4">Reservas Totales</p>
+                      <p class="fs-30 mb-2">61344</p>
+                      <p>22.00% (30 días)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                  <div class="card card-light-blue">
+                    <div class="card-body">
+                      <p class="mb-4">Número de reuniones</p>
+                      <p class="fs-30 mb-2">34040</p>
+                      <p>2.00% (30 días)</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 stretch-card transparent">
+                  <div class="card card-light-danger">
+                    <div class="card-body">
+                      <p class="mb-4">Numero de Clientes</p>
+                      <p class="fs-30 mb-2">47033</p>
+                      <p>0.22% (30 días)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title ml-3 mt-3" style="font-size:30px;">Un poco de mí.</p>
+                  <p class="font-weight-500 ml-3" style="font-size:20px;">Inicié el 18 de Abril del 2022. Desde entonces he aprendido muchas cosas valiosas con respecto al programa de formación. Además como persona también he logrado algo de esperiencia. </p>
+                  <p class="font-weight-500 ml-3" style="font-size:20px;">Como meta. Quiero aprovechar todas las herramientas que nos  ofrece el sena para poder refinar lo que estoy aprendiendo.</p>
+                  <p class="font-weight-500 ml-3" style="font-size:20px;">¿Por qué me  gusta programar? Convina varias cosas que me gustan, una de ellas es buscarle sentido a las cosas o sea su lógica, y mucho de los ejercicios pude disfrutar ello.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                 <div class="d-flex justify-content-between">
+                  <p class="card-title">Estadisticas de las 2 partes del la programación</p>
+                  <a href="#" class="text-info">Ver todo</a>
+                 </div>
+                  <p class="font-weight-500">A medida que avanzamos en el programa hemos dedicado gran parte de los proyectos a fortalecer lo que conocemos como Back end y Front end.</p>
+                  <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
+                  <canvas id="sales-chart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-7 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title ml-3 mt-3" style="font-size:30px;">Mis logros 
+                    🥇
+                    </p>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-borderless">
+                      <thead>
+                        <tr>
+                          <th>Nombre del Certificado</th>
+                          <th>Estado</th>
+                          <th>Fecha</th>
+                          <th>Entidad</th>
+                        </tr>  
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Programación de software</td>
+                          <td>Certificado</td>
+                          <td>18/7/2022</td>
+                          <td class="font-weight-medium">Sena</td>
+                        </tr>
+                        <tr>
+                          <td>Variables y estructuras de control en Python</td>
+                          <td>Matriculado</td>
+                          <td>15/10/2022</td>
+                          <td class="font-weight-medium">Sena</td>
+                        </tr>
+                        <tr>
+                          <td>Javascript</td>
+                          <td>Certificado</td>
+                          <td>15/10/2022</td>
+                          <td class="font-weight-medium">Sena</td>
+                        </tr>
+                        <tr>
+                          <td>Servicio al cliente</td>
+                          <td>Certificado</td>
+                          <td>15/10/2022</td>
+                          <td class="font-weight-medium">Sena</td>
+                        </tr>
+                        <tr>
+                          <td>Analisis y desarrollo de sistemas de información</td>
+                          <td>Matriculado</td>
+                          <td>15/10/2022</td>
+                          <td class="font-weight-medium">Sena</td>
+                        </tr>
+                        <!-- <tr>
+                          <td>Display Advertising</td>
+                          <td class="font-weight-bold">$551</td>
+                          <td>28 Sep 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                        </tr> -->
+                        <!-- <tr>
+                          <td>Pay Per Click Advertising</td>
+                          <td class="font-weight-bold">$523</td>
+                          <td>30 Jun 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                        </tr> -->
+                        <!-- <tr>
+                          <td>E-Mail Marketing</td>
+                          <td class="font-weight-bold">$781</td>
+                          <td>01 Nov 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-danger">Cancelled</div></td>
+                        </tr> -->
+                        <!-- <tr>
+                          <td>Referral Marketing</td>
+                          <td class="font-weight-bold">$283</td>
+                          <td>20 Mar 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                        </tr> -->
+                        <!-- <tr>
+                          <td>Social media marketing</td>
+                          <td class="font-weight-bold">$897</td>
+                          <td>26 Oct 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                        </tr> -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title">Lista de pendientes</h4>
+									<div class="list-wrapper pt-2">
+										<ul class="d-flex flex-column-reverse todo-list todo-list-custom">
+											<li>
+												<div class="form-check form-check-flat">
+													<label class="form-check-label">
+														<input class="checkbox" type="checkbox">
+														Curso complementario de sistemas de información
+													</label>
+												</div>
+												<i class="remove ti-close"></i>
+											</li>
+											<li class="completed">
+												<div class="form-check form-check-flat">
+													<label class="form-check-label">
+														<input class="checkbox" type="checkbox" checked>
+														Terminar de actualizar el portafolio
+													</label>
+												</div>
+												<i class="remove ti-close"></i>
+											</li>
+											<li>
+												<div class="form-check form-check-flat">
+													<label class="form-check-label">
+														<input class="checkbox" type="checkbox">
+														Terminar el proyecto de la fotografía 
+													</label>
+												</div>
+												<i class="remove ti-close"></i>
+											</li>
+											<li class="completed">
+												<div class="form-check form-check-flat">
+													<label class="form-check-label">
+														<input class="checkbox" type="checkbox" checked>
+														Respasar los temas vistos
+													</label>
+												</div>
+												<i class="remove ti-close"></i>
+											</li>
+											<li>
+												<div class="form-check form-check-flat">
+													<label class="form-check-label">
+														<input class="checkbox" type="checkbox">
+														Practicar 
+													</label>
+												</div>
+												<i class="remove ti-close"></i>
+											</li>
+										</ul>
+                  </div>
+                  <div class="add-items d-flex mb-0 mt-2">
+										<input type="text" class="form-control todo-list-input"  placeholder="Add new task">
+										<Proyecto#  class="add btn btn-icon text-primary todo-list-add-btn bg-transparent"><i class="icon-circle-plus"></i></Proyecto# >
+									</div>
+								</div>
+							</div>
+            </div>
+          </div>
+       
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022. <a href="https://eliseovega.github.io/" target="_blank">Aprendiz. Yeanis Canchila</a> Aprendiz sena</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">SENA - CITS <i class="ti-heart text-danger ml-1"></i></span>
+          </div>
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Programa <a href="https://www.themewagon.com/" target="_blank">ADSI</a></span> 
+          </div>
+        </footer> 
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>   
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <script src="js/dataTables.select.min.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="js/dashboard.js"></script>
+  <script src="js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
+  <script src="https://kit.fontawesome.com/22b48adfe3.js" crossorigin="anonymous"></script>
+  
+</body>
+
+</html>
